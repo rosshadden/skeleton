@@ -26,10 +26,6 @@ var io,
 	serve = function(){
 		init();
 		
-		/*	SOCKET.IO
-				io.sockets.on('connection',function(socket){});
-		*/
-		
 		app.get('/',function(request,response){
 			response.render('index');
 		});
@@ -49,5 +45,9 @@ var io,
 			
 			response.end(JSON.stringify(data));
 		});
+		
+		/*	SOCKET.IO
+				io.sockets.on('connection',function(socket){});
+		*/
 	};
 exports.serve = serve;
