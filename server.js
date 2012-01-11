@@ -35,7 +35,7 @@ var io,
 				url = parseURL(request.url,true);
 			response.contentType('application/json');
 			
-			switch(url.query.on){
+			switch(url.query.for){
 				case 'debug':
 					data = 'debug';
 					break;
@@ -44,6 +44,12 @@ var io,
 			}
 			
 			response.end(JSON.stringify(data));
+		});
+		
+		//	Do I like this better than the thing above?
+		app.get('/GET/:module?/:action?',function(request,response){
+			console.log(request.params);
+			response.send(request.params);
 		});
 		
 		/*	SOCKET.IO
